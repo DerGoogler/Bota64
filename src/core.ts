@@ -1,5 +1,5 @@
-export function encode(string, base64) {
-  const compile = string
+function _encode(content: string) {
+  const compile = content
     .replace(/a/g, "𑫀")
     .replace(/b/g, "𑫁")
     .replace(/c/g, "𑫂")
@@ -66,15 +66,11 @@ export function encode(string, base64) {
     .replace(/\//g, "᜶")
     .replace(/\?/g, "⸿");
 
-  if (base64) {
-    return window.btoa(unescape(encodeURIComponent(compile.trim())));
-  } else {
-    return compile.trim();
-  }
+  return compile.trim();
 }
 
-export function decode(string, base64) {
-  const compile = string
+function _decode(content: string) {
+  const compile = content
     // decode abc case
     .replace(/𑫀/g, "a")
     .replace(/𑫁/g, "b")
@@ -142,11 +138,7 @@ export function decode(string, base64) {
     .replace(/᜶/g, "/")
     .replace(/⸿/g, "?");
 
-  if (base64) {
-    return decodeURIComponent(
-      escape(window.atob(decode(compile.trim(), false)))
-    );
-  } else {
-    return compile.trim();
-  }
+  return compile.trim();
 }
+
+export { _encode, _decode };
