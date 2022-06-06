@@ -1,12 +1,8 @@
 interface Options {
   withBase64: boolean;
 }
-/**
- * Custom encoding
- */
-declare class Bota64 {
-  private withBase64;
-  constructor(options?: Options);
+
+export interface IBota64 {
   /**
    * @param {*} content Any text
    * @returns {string} An encoded string
@@ -17,6 +13,24 @@ declare class Bota64 {
    * @returns {string} An decoded string
    */
   decode(content: string): string;
+}
+
+/**
+ * Custom encoding
+ */
+declare class Bota64 implements IBota64 {
+  private withBase64;
+  constructor(options?: Options);
+  /**
+   * @param {*} content Any text
+   * @returns {string} An encoded string
+   */
+  public encode(content: string): string;
+  /**
+   * @param {*} content Any text
+   * @returns {string} An decoded string
+   */
+  public decode(content: string): string;
 }
 
 /**
