@@ -1,4 +1,4 @@
-function _encode(content: string) {
+function _encode(content) {
   const compile = content
     .replace(/a/g, "𑫀")
     .replace(/b/g, "𑫁")
@@ -69,7 +69,7 @@ function _encode(content: string) {
   return compile.trim();
 }
 
-function _decode(content: string) {
+function _decode(content) {
   const compile = content
     // decode abc case
     .replace(/𑫀/g, "a")
@@ -141,4 +141,4 @@ function _decode(content: string) {
   return compile.trim();
 }
 
-export { _encode, _decode };
+module.exports = { _encode, _decode };

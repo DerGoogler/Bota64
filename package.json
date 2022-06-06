@@ -2,8 +2,8 @@
   "name": "bota64",
   "version": "1.0.0",
   "description": "Custom encoding",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "src/index.js",
+  "types": "src/index.d.ts",
   "keywords": [
     "base64",
     "encode",
@@ -18,17 +18,5 @@
   "bugs": {
     "url": "https://github.com/DerGoogler/Bota64/issues"
   },
-  "homepage": "https://github.com/DerGoogler/Bota64",
-  "scripts": {
-    "prepublish": "npm run build",
-    "build": "tsc"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.16.5",
-    "@babel/preset-env": "^7.16.5",
-    "babel-loader": "^8.2.3",
-    "typescript": "^4.7.2",
-    "webpack": "5.65.0",
-    "webpack-cli": "4.9.1"
-  }
+  "homepage": "https://github.com/DerGoogler/Bota64"
 }
