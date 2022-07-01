@@ -5,7 +5,7 @@ Simple string encryption
 ## Installing
 
 ```
-npm install git+https://github.com/DerGoogler/Bota64.git --save
+npm install bota64 --save
 ```
 
 # Usage

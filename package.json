@@ -2,8 +2,14 @@
   "name": "bota64",
   "version": "1.0.0",
   "description": "Custom encoding",
-  "main": "src/index.js",
-  "types": "src/index.d.ts",
+  "main": "./lib/cjs/index.js",
+  "module": "./lib/esm/index.js",
+  "types": "./lib/esm/index.d.ts",
+  "scripts": {
+    "build": "npm run build:esm && npm run build:cjs",
+    "build:esm": "tsc",
+    "build:cjs": "tsc --module commonjs --outDir lib/cjs"
+  },
   "keywords": [
     "base64",
     "encode",
@@ -18,5 +24,11 @@
   "bugs": {
     "url": "https://github.com/DerGoogler/Bota64/issues"
   },
-  "homepage": "https://github.com/DerGoogler/Bota64"
+  "homepage": "https://github.com/DerGoogler/Bota64",
+  "files": [
+    "/lib"
+  ],
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  }
 }
