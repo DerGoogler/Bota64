@@ -13,13 +13,26 @@ npm install bota64 --save
 Encode
 
 ```js
-const encode = bota.encode("Hello World!");
-console.log(encode); // => 𐑼𑫄𑫋𑫋𑫎𑁈𐓓𑫎𑫑𑫋𑫃᜵
+import { Bota64 } from "bota64";
+
+const bo = new Bota64();
+console.log(bo.encode("Hello World!")); // => 𐑼𑫄𑫋𑫋𑫎𑁈𐓓𑫎𑫑𑫋𑫃᜵
 ```
 
 Decode
 
 ```js
-const decode = bota.encode("𐑼𑫄𑫋𑫋𑫎𑁈𐓓𑫎𑫑𑫋𑫃᜵");
-console.log(decode); // => Hello World!
+import { Bota64 } from "bota64";
+
+const bo = new Bota64();
+console.log(bo.decode("𐑼𑫄𑫋𑫋𑫎𑁈𐓓𑫎𑫑𑫋𑫃᜵")); // => Hello World!
+```
+
+## With base64
+
+```js
+import { Bota64 } from "bota64";
+
+const bo = new Bota64({ withBase64: true });
+// ...
 ```
