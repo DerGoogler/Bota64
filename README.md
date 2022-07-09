@@ -10,29 +10,18 @@ npm install bota64 --save
 
 # Usage
 
-Encode
+Quick example
 
 ```js
-import { Bota64 } from "bota64";
+import Bota64 from "bota64";
 
-const bo = new Bota64();
-console.log(bo.encode("Hello World!")); // => 𐑼𑫄𑫋𑫋𑫎𑁈𐓓𑫎𑫑𑫋𑫃᜵
-```
+const b = new Bota64();
 
-Decode
+const e = b.encode("I like you :)");
 
-```js
-import { Bota64 } from "bota64";
+const d = b.decode(e);
 
-const bo = new Bota64();
-console.log(bo.decode("𐑼𑫄𑫋𑫋𑫎𑁈𐓓𑫎𑫑𑫋𑫃᜵")); // => Hello World!
-```
+console.log(`Encoded: ${e}`); // => ¶¶↕≈─Æ≠αžŸα≥┐¶↔6®œ==
 
-## With base64
-
-```js
-import { Bota64 } from "bota64";
-
-const bo = new Bota64({ withBase64: true });
-// ...
+console.log(`Decoded: ${d}`); // => I like you :)
 ```
