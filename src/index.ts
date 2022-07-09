@@ -11,6 +11,10 @@ class Bota64 {
     this.REGEX_SPACE_CHARACTERS = /<%= spaceCharacters %>/g;
   }
 
+  private error(message: string): void {
+    console.error(message);
+  }
+
   /**
    * @param {*} content Any text
    * @returns {string} An encoded string
@@ -18,9 +22,7 @@ class Bota64 {
   public encode(input: string): string {
     input = String(input);
     if (/[^\0-\xFF]/.test(input)) {
-      // Note: no need to special-case astral symbols here, as surrogates are
-      // matched, and the input is supposed to only contain ASCII anyway.
-      throw new Error("The string to be encoded contains characters outside of the " + "Latin1 range.");
+      this.error("The string to be encoded contains characters outside of the " + "Latin1 range.");
     }
     let padding: string | number = input.length % 3;
     let output: string = "";
