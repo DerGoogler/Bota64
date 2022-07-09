@@ -11,19 +11,12 @@ class Bota64 {
     this.REGEX_SPACE_CHARACTERS = /<%= spaceCharacters %>/g;
   }
 
-  private error(message: string): void {
-    console.error(message);
-  }
-
   /**
    * @param {*} content Any text
    * @returns {string} An encoded string
    */
   public encode(input: string): string {
     input = String(input);
-    if (/[^\0-\xFF]/.test(input)) {
-      this.error("The string to be encoded contains characters outside of the " + "Latin1 range.");
-    }
     let padding: string | number = input.length % 3;
     let output: string = "";
     let position: number = -1;
