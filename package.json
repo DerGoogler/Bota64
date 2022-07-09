@@ -1,14 +1,24 @@
 {
   "name": "bota64",
-  "version": "1.0.1",
-  "description": "Custom encoding",
-  "main": "./lib/cjs/index.js",
-  "module": "./lib/esm/index.js",
-  "types": "./lib/esm/index.d.ts",
+  "version": "1.0.2",
+  "description": "It's my first custom encoding :(",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "module": "dist/onuix.esm.js",
   "scripts": {
-    "build": "npm run build:esm && npm run build:cjs",
-    "build:esm": "tsc",
-    "build:cjs": "tsc --module commonjs --outDir lib/cjs"
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test --passWithNoTests",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "resolutions": {
+    "**/typescript": "^4.1.3"
   },
   "keywords": [
     "base64",
@@ -24,11 +34,15 @@
   "bugs": {
     "url": "https://github.com/DerGoogler/Bota64/issues"
   },
-  "homepage": "https://github.com/DerGoogler/Bota64",
-  "files": [
-    "/lib"
-  ],
+  "homepage": "https://dergoogler.com",
   "devDependencies": {
+    "postcss": "^8.4.14",
+    "rollup-plugin-postcss": "^4.0.2",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.4.0",
     "typescript": "^4.7.4"
-  }
+  },
+  "files": [
+    "/dist"
+  ]
 }

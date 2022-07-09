@@ -2,8 +2,9 @@
 .cache/
 coverage/
 dist/*
-!dist/index.html
 node_modules/
+node_modules.bun
+package-lock.json
 cdn_modules/
 *.log
 
