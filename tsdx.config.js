@@ -9,6 +9,7 @@ module.exports = {
         extract: false,
       })
     );
+    
     return config;
   },
 };

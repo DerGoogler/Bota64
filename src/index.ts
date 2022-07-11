@@ -1,20 +1,44 @@
 import pkg from "./../package.json";
 
+interface IBota64 {
+  /**
+   * @param {*} input Any text
+   * @returns {string} An encoded string
+   */
+  encode(input: string): string;
+
+  /**
+   * @param {*} input Any text
+   * @returns {string} An decoded string
+   */
+  decode(input: string): string;
+
+  /**
+   * Gets the current version of Bota64
+   */
+  version(): string;
+
+  /**
+   * Create an custom table for en- and decoding (Should be used before encoding end decoding)
+   * @param table
+   */
+  createTable(table: string): void;
+
+  createSpaceCharacters(spaceCharacters: RegExp): void;
+}
+
 /**
  * Custom encoding
  */
-class Bota64 {
-  private readonly TABLE: string;
-  private readonly REGEX_SPACE_CHARACTERS: RegExp;
-  constructor() {
+class Bota64Class implements IBota64 {
+  private TABLE: string;
+  private REGEX_SPACE_CHARACTERS: RegExp;
+
+  public constructor() {
     this.TABLE = "↔↕•⁄‰™€Ÿžš®©«§¥Øœµ¶×÷æÆ¢±¿─│┌┐└┘├┤┬┴┼αβγΔ∑√∫≈≠≤≥←↑→↓0123456789+/";
     this.REGEX_SPACE_CHARACTERS = /<%= spaceCharacters %>/g;
   }
 
-  /**
-   * @param {*} content Any text
-   * @returns {string} An encoded string
-   */
   public encode(input: string): string {
     input = String(input);
     let padding: string | number = input.length % 3;
@@ -55,10 +79,6 @@ class Bota64 {
     return output;
   }
 
-  /**
-   * @param {*} content Any text
-   * @returns {string} An decoded string
-   */
   public decode(input: string): string {
     input = String(input).replace(this.REGEX_SPACE_CHARACTERS, "");
     let length = input.length;
@@ -84,12 +104,22 @@ class Bota64 {
     return output;
   }
 
-  /**
-   * Gets the current version of Bota64
-   */
-  get version(): string {
+  public version(): string {
     return pkg.version;
+  }
+
+  public createTable(table: string): void {
+    this.TABLE = table;
+  }
+
+  public createSpaceCharacters(spaceCharacters: RegExp): void {
+    this.REGEX_SPACE_CHARACTERS = spaceCharacters;
   }
 }
 
+/**
+ * Custom encoding
+ */
+const Bota64: IBota64 = new Bota64Class();
 export default Bota64;
+export { Bota64Class, IBota64 };

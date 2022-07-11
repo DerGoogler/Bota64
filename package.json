@@ -1,6 +1,6 @@
 {
   "name": "bota64",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "It's my first custom encoding :(",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
