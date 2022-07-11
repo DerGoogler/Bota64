@@ -24,6 +24,11 @@ interface IBota64 {
    */
   createTable(table: string): void;
 
+  /**
+   * Uses the legacy table of first Bota64 version
+   */
+  useLegacyTable(): void;
+
   createSpaceCharacters(spaceCharacters: RegExp): void;
 }
 
@@ -110,6 +115,10 @@ class Bota64Class implements IBota64 {
 
   public createTable(table: string): void {
     this.TABLE = table;
+  }
+
+  public useLegacyTable(): void {
+    this.TABLE = "𐓆𐓍𐒱𐒴𐒄𐑙𐑿𐑼𐒏𐒤𐓌𐓉𐓋𐓊𐓒𐓏𐓑𐓐𐒁𐒀𐒘𐒲𐓓𐒅𐒻𐒕𑫀𑫁𑫂𑫃𑫄𑫅𑫆𑫇𑫈𑫉𑫊𑫋𑫌𑫍𑫎𑫏𑫐𑫑𑫒𑫓𑫣𑫔𑫕𑫖𑫗𑫘";
   }
 
   public createSpaceCharacters(spaceCharacters: RegExp): void {
