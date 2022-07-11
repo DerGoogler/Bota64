@@ -4,8 +4,12 @@ Simple string encryption
 
 ## Installing
 
-```
+```bash
 npm install bota64 --save
+
+bun add bota64
+
+yarn add bota64
 ```
 
 # Usage
